@@ -1,0 +1,13 @@
+-- CreateTable
+CREATE TABLE "Card" (
+    "id" SERIAL NOT NULL,
+    "front" TEXT NOT NULL,
+    "back" TEXT NOT NULL,
+    "reviewDate" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "deckId" INTEGER NOT NULL,
+
+    PRIMARY KEY ("id")
+);
+
+-- AddForeignKey
+ALTER TABLE "Card" ADD FOREIGN KEY ("deckId") REFERENCES "Deck"("id") ON DELETE CASCADE ON UPDATE CASCADE;
